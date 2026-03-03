@@ -165,7 +165,7 @@
     <img src="rmacc-512.png" alt="RMACC Logo">
     <div>
       <h1>RMACC Zwift Club</h1>
-      <h2>Legends of Zwift Winter Series 2025/26</h2>
+      <h2>RMACC March '26 Mini Series</h2>
     </div>
   </header>
 
@@ -186,10 +186,7 @@
         <b>Group ride points:</b> All riders completing an event will earn a fixed 12 points.
       </p>
       <p>
-        <b>TT Bonus points:</b> All riders completing both TT events will earn 1 point for every second they finish faster in the second TT than the first, up to a maximum of 5.
-      </p>
-      <p>
-        <b>Events Bonus points:</b> All riders completing 5 or more events will earn a fixed 5 points.
+        <b>Events Bonus points:</b> All riders completing all 4 events will earn a fixed 5 points.
       </p>
       <button class="modal-close" id="closeModal">Close</button>
     </div>
@@ -203,15 +200,14 @@
   </div>
 
   <script>
-    const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSVnw2KKM6Nq2GdqNgQsDB6kt_pEKW5wzPXg_hyljv7At5-mhVULozttX6BDj98EQ/pub?gid=1326660133&single=true&output=csv";
-
+    const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSNc7CS5h574-Y6hQzHTrkfHqVkqsZyfbzFHeb0jxqy-UDAC9ltjcJiwGY-EZ1kAw/pub?output=csv";
     async function fetchCSV(url) {
       try {
         const res = await fetch(url);
         const text = await res.text();
         return { text, offline: false };
       } catch (err) {
-        const cache = await caches.open("zwift-cache-v3");
+        const cache = await caches.open("zwift-cache2-v1");
         const cachedResponse = await cache.match(url);
         if (cachedResponse) {
           const text = await cachedResponse.text();
