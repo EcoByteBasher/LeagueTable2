@@ -183,9 +183,6 @@
         <b>Race points:</b> In addition, all finishers will earn 1 point for every rider that finishes behind you. Example: 10 riders finish, you are second. You earn 6 finish points + 8 race points, total 14 points.
       </p>
       <p>
-        <b>Group ride points:</b> All riders completing an event will earn a fixed 12 points.
-      </p>
-      <p>
         <b>Events Bonus points:</b> All riders completing all 4 events will earn a fixed 5 points.
       </p>
       <button class="modal-close" id="closeModal">Close</button>
@@ -207,7 +204,7 @@
         const text = await res.text();
         return { text, offline: false };
       } catch (err) {
-        const cache = await caches.open("zwift-cache2-v1");
+        const cache = await caches.open("zwift-cache2-v2");
         const cachedResponse = await cache.match(url);
         if (cachedResponse) {
           const text = await cachedResponse.text();
